@@ -110,15 +110,12 @@ class NumberField extends StatefulWidget {
   const NumberField({Key? key, this.onChange}) : super(key: key);
 
   @override
-  State<NumberField> createState() => _NumberFieldState(onChange);
+  State<NumberField> createState() => _NumberFieldState();
+
 }
 
 class _NumberFieldState extends State<NumberField> {
-
-  final void Function(int)? onChange;
   var _value = 1;
-
-  _NumberFieldState(this.onChange);
 
   @override
   Widget build(BuildContext context) {
@@ -132,17 +129,16 @@ class _NumberFieldState extends State<NumberField> {
   void _onDecrement() {
     if (_value > 1) {
       setState(() => _value--);
-      onChange?.call(_value);
+      widget.onChange?.call(_value);
     }
   }
 
   void _onIncrement() {
     setState(() => _value++);
-    onChange?.call(_value);
+    widget.onChange?.call(_value);
   }
 
 }
-
 
 class CustomButton extends StatelessWidget {
   final void Function() onTap;
