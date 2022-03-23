@@ -8,7 +8,7 @@ class TemperatureCalculator extends StatefulWidget {
 }
 
 class _TemperatureCalculatorState extends State<TemperatureCalculator> {
-  var _celsius = 0.0;
+  var _celsius = "0";
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +39,11 @@ class _TemperatureCalculatorState extends State<TemperatureCalculator> {
 
   void _onTemperatureChange(String newValue) {
     setState(() {
-      _celsius = (double.parse(newValue) - 32) * 5 / 6;
+      try {
+        _celsius = ((double.parse(newValue) - 32) * 5 / 6).toStringAsFixed(2);
+      } catch (exception) {
+        debugPrint("Invalid temperature");
+      }
     });
   }
 }
