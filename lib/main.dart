@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:training/ui/temperature_calculator.dart';
+import 'ui/bill_splitter.dart';
+import 'ui/temperature_calculator.dart';
 import 'ui/counter_app.dart';
 import 'ui/material_hello_world.dart';
 
@@ -7,7 +8,8 @@ void main() {
   // runApp(const HelloWorld());
   // runApp(const MaterialHelloWorld());
   // runApp(const MaterialApp(home: CounterApp()));
-  runApp(const MaterialApp(home: TemperatureCalculator()));
+  // runApp(const MaterialApp(home: TemperatureCalculator()));
+  runApp(const MaterialApp(home: BillSplitter()));
 }
 
 class HelloWorld extends StatelessWidget {
