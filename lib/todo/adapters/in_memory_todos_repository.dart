@@ -1,5 +1,5 @@
-import 'package:training/todo/api/todos_repository.dart';
-import 'package:training/todo/models/todo.dart';
+import '../api/todos_repository.dart';
+import '../models/todo.dart';
 
 class InMemoryTodosRepository implements TodosRepository {
   List<Todo> _todos = [];
@@ -14,5 +14,5 @@ class InMemoryTodosRepository implements TodosRepository {
     _todos = todos;
     return Future.value();
   }
-  
+
 }

@@ -1,5 +1,5 @@
 import 'package:redux/redux.dart';
-import 'package:training/todo/actions/actions.dart';
+import '../actions/actions.dart';
 import '../api/todos_repository.dart';
 import '../models/app_state.dart';
 
