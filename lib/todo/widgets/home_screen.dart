@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../containers/todos.dart';
+
 class HomeScreen extends StatefulWidget {
   final void Function() onInit;
   const HomeScreen({Key? key, required this.onInit}) : super(key: key);
@@ -19,7 +21,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text("Todos")),
-
+      body: const Todos(),
     );
   }
 }
