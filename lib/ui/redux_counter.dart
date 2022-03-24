@@ -32,16 +32,17 @@ class ReduxCounter extends StatelessWidget {
                   children: [
                     StoreConnector<int, String>(
                       converter: (store) => store.state.toString(),
-                      builder: (context, count) => Text("Counter value: $count")
-                      ),
+                      builder: (context, count) => Text("Counter value: $count", style: const TextStyle(color: Colors.blue, fontSize: 24))
+                    ),
+                    const SizedBox(height: 50),
                     StoreConnector<int, VoidCallback>(
                         converter: (store) => () => store.dispatch(Actions.decrement),
                         builder: (context, callback) => TextButton(onPressed: callback, child: const Text("Decrement"), style: buttonStyle)
-                        ),
+                    ),
                     StoreConnector<int, VoidCallback>(
                         converter: (store) => () => store.dispatch(Actions.increment),
                         builder: (context, callback) => TextButton(onPressed: callback, child: const Text("Increment"), style: buttonStyle)
-                        )
+                    )
                   ],
                 ),
               )),
