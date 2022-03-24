@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:training/movies/fake_movies_provider.dart';
-import 'package:training/movies/movies_service.dart';
+import 'movies_service.dart';
 import 'movie.dart';
 
 class Movies extends StatefulWidget {
@@ -32,6 +31,7 @@ class _MoviesState extends State<Movies> {
       body: ListView.builder(
           itemCount: _movies.length,
           itemBuilder: (BuildContext context, int index) {
+            final movie = _movies[index];
             return Card(
               elevation: 5,
               child: ListTile(
@@ -39,12 +39,14 @@ class _MoviesState extends State<Movies> {
                   backgroundColor: Colors.grey.shade700,
                   child: Container(
                     decoration: BoxDecoration(
-                      image: DecorationImage(image: NetworkImage(_movies[index].images.first), fit: BoxFit.cover),
+                      image: DecorationImage(image: NetworkImage(movie.images.first), fit: BoxFit.cover),
                       color: Colors.grey.shade700,
                       borderRadius: BorderRadius.circular(20)
                     ),
                   ),
                 ),
+                title: Text(movie.title, style: const TextStyle(color: Colors.blue)),
+                trailing: const Text(">", style: TextStyle(color: Colors.blue)),
               ),
             );
           }),

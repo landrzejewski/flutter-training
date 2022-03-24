@@ -1,4 +1,4 @@
-import 'package:training/movies/movie.dart';
+import 'movie.dart';
 
 abstract class MoviesProvider {
 

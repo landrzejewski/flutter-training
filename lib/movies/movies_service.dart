@@ -1,5 +1,7 @@
 import 'package:training/movies/movie.dart';
 import 'package:training/movies/movies_provider.dart';
+import 'movie.dart';
+import 'movies_provider.dart';
 
 class MoviesService {
   final MoviesProvider _moviesProvider;
