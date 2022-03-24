@@ -6,7 +6,7 @@ import 'movies_provider.dart';
 class MoviesService {
   final MoviesProvider _moviesProvider;
 
-  MoviesService(this._moviesProvider);
+  const MoviesService(this._moviesProvider);
 
   Future<List<Movie>> loadMovies() {
     return _moviesProvider
