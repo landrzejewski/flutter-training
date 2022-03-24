@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class CounterApp extends StatefulWidget {
-  const CounterApp({Key? key}) : super(key: key);
+class Counter extends StatefulWidget {
+  const Counter({Key? key}) : super(key: key);
 
   @override
-  State<CounterApp> createState() => _CounterAppState();
+  State<Counter> createState() => _CounterState();
 }
 
-class _CounterAppState extends State<CounterApp> {
+class _CounterState extends State<Counter> {
   var _counter = 0;
 
   @override
@@ -62,8 +62,8 @@ class _CounterAppState extends State<CounterApp> {
 }
 
 /*
-class CounterApp extends StatelessWidget {
-  const CounterApp({Key? key}) : super(key: key);
+class Counter extends StatelessWidget {
+  const Counter({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

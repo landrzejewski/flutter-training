@@ -1,20 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:training/movies/fake_movies_provider.dart';
-import 'package:training/movies/http_movies_provider.dart';
-import 'package:training/movies/movies_service.dart';
-import 'package:training/movies/movies_ui.dart';
+import 'package:redux/redux.dart';
+import 'movies/fake_movies_provider.dart';
+import 'movies/http_movies_provider.dart';
+import 'movies/movies_service.dart';
+import 'movies/movies_ui.dart';
 import 'ui/bill_splitter.dart';
+import 'ui/redux_counter.dart';
 import 'ui/temperature_calculator.dart';
-import 'ui/counter_app.dart';
+import 'ui/counter.dart';
 import 'ui/material_hello_world.dart';
 
 void main() {
   // runApp(const HelloWorld());
   // runApp(const MaterialHelloWorld());
-  // runApp(const MaterialApp(home: CounterApp()));
+  // runApp(const MaterialApp(home: Counter()));
   // runApp(const MaterialApp(home: TemperatureCalculator()));
   // runApp(const MaterialApp(home: BillSplitter()));
-  runApp(MaterialApp(home: Movies(moviesService: MoviesService(HttpMoviesProvider("https://raw.githubusercontent.com/landrzejewski/flutter-training/master/data.json")))));
+  // runApp(const MaterialApp(home: Movies(moviesService: MoviesService(HttpMoviesProvider("https://raw.githubusercontent.com/landrzejewski/flutter-training/master/data.json")))));
+  final store = Store<int>(counterReductor, initialState: 0);
+  runApp(ReduxCounter(store: store));
 }
 
 class HelloWorld extends StatelessWidget {
