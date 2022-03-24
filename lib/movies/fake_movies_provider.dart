@@ -2,7 +2,7 @@ import 'movie.dart';
 import 'movies_provider.dart';
 
 class FakeMoviesProvider implements MoviesProvider {
-
+  @override
   Future<List<Movie>> getMovies() async {
     return Future.value([
       Movie(
@@ -16,9 +16,7 @@ class FakeMoviesProvider implements MoviesProvider {
             "https://images-na.ssl-images-amazon.com/images/M/MV5BMTYxMDg1Nzk1MV5BMl5BanBnXkFtZTcwMDk0MTUzNA@@._V1_SX1500_CR0,0,1500,999_AL_.jpg"
           ],
           "Adventure",
-          "1999"
-      )
+          "1999")
     ]);
   }
-
 }

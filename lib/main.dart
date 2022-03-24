@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:training/movies/fake_movies_provider.dart';
+import 'package:training/movies/movies_service.dart';
+import 'package:training/movies/movies_ui.dart';
 import 'ui/bill_splitter.dart';
 import 'ui/temperature_calculator.dart';
 import 'ui/counter_app.dart';
@@ -9,7 +12,8 @@ void main() {
   // runApp(const MaterialHelloWorld());
   // runApp(const MaterialApp(home: CounterApp()));
   // runApp(const MaterialApp(home: TemperatureCalculator()));
-  runApp(const MaterialApp(home: BillSplitter()));
+  // runApp(const MaterialApp(home: BillSplitter()));
+  runApp(MaterialApp(home: Movies(moviesService: MoviesService(FakeMoviesProvider()))));
 }
 
 class HelloWorld extends StatelessWidget {
