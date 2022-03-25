@@ -15,4 +15,8 @@ class Calculator {
     return (leftHandSide / rightHandSide).round();
   }
 
+  Future<int> square(int value) {
+    return Future.delayed(const Duration(seconds: 3), () => value * value);
+  }
+
 }
