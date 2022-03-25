@@ -3,6 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:training/ui/header.dart';
 
 void main() {
+
   testWidgets("has title", (WidgetTester tester) async {
     const title = "Hello";
     await tester.pumpWidget(const Header(title: title));
@@ -11,4 +12,5 @@ void main() {
     final textElement = text.evaluate().single.widget as Text;
     expect(textElement.data, title);
   });
+
 }
