@@ -16,8 +16,8 @@ class FirebaseTodosRepository implements TodosRepository {
   }
 
   @override
-  Future save(List<Todo> todos) async {
-    return Future(() => todos.map(_toMap).forEach((element) => collection.doc(element["id"]).set(element)));
+  Future save(Todo todo) async {
+    return Future(() => collection.doc(todo.id).set(_toMap(todo)));
   }
 
   Map<String, dynamic> _toMap(Todo todo) =>

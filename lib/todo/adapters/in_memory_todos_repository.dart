@@ -4,7 +4,7 @@ import '../api/todos_repository.dart';
 import '../models/todo.dart';
 
 class InMemoryTodosRepository implements TodosRepository {
-  List<Todo> _todos = [Todo("Learn dart")];
+  final List<Todo> _todos = [Todo("Learn dart")];
 
   @override
   Future<List<Todo>> load() {
@@ -12,8 +12,8 @@ class InMemoryTodosRepository implements TodosRepository {
   }
 
   @override
-  Future save(List<Todo> todos) {
-    _todos = todos;
+  Future save(Todo todo) {
+    _todos.add(todo);
     return Future.value();
   }
 }

@@ -18,8 +18,10 @@ class SharedPreferencesTodosRepository implements TodosRepository {
   }
 
   @override
-  Future save(List<Todo> todos) async {
+  Future save(Todo todo) async {
     final preferences = await SharedPreferences.getInstance();
+    final todos = await load();
+    todos.add(todo);
     return preferences.setString(todosKey, _toJson(todos));
   }
 
