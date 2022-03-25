@@ -1,5 +1,7 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:redux/redux.dart';
+import 'package:training/todo/adapters/firebase_todos_repository.dart';
 import 'package:training/todo/adapters/shared_preferences_todos_repository.dart';
 import 'package:training/ui/battery.dart';
 import 'todo/adapters/in_memory_todos_repository.dart';
@@ -34,8 +36,10 @@ Future<void> main() async {
   // final repository = InMemoryTodosRepository();
   // final repository = SharedPreferencesTodosRepository();
   // await repository.save([Todo("Learn dart")]);
-  // runApp(TodoApp(store: Store<AppState>(appReducer, initialState: AppState(), middleware: createTodosStoreMiddleware(repository))));
-  runApp(const Battery());
+  await Firebase.initializeApp();
+  final repository = FirebaseTodosRepository();
+  runApp(TodoApp(store: Store<AppState>(appReducer, initialState: AppState(), middleware: createTodosStoreMiddleware(repository))));
+  // runApp(const Battery());
 }
 
 // class HelloWorld extends StatelessWidget {
