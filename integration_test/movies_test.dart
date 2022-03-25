@@ -18,12 +18,14 @@ void main() {
   testWidgets("given user when select movie then movie details is shown", (WidgetTester tester) async {
       final moviesService = MoviesService(FakeMoviesProvider());
       await tester.pumpWidget(MaterialApp(home: Movies(moviesService: moviesService)));
-      await tester.pumpAndSettle(const Duration(seconds: 4));
+      await tester.pumpAndSettle();
       final cards = find.byType(Card).evaluate().toList();
       expect(_getRowTitle(cards.first), "Rocky");
       await tester.tap(find.byWidget(cards.first.widget));
-      await tester.pumpAndSettle(const Duration(seconds: 4));
+      await tester.pumpAndSettle();
       expect(find.text("1999 - Adventure"), findsOneWidget);
   });
 
 }
+
+// flutter test integration_test/movies_test.dart --no-sound-null-safety
