@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:redux/redux.dart';
+import 'package:training/todo/containers/add_todo.dart';
 import 'actions/actions.dart';
 import 'models/app_state.dart';
 import 'widgets/home_screen.dart';
@@ -15,7 +16,8 @@ class TodoApp extends StatelessWidget {
         store: store,
         child: MaterialApp(
           routes: {
-            TodosRoutes.home: (context) => HomeScreen(onInit: () => StoreProvider.of<AppState>(context).dispatch(LoadTodosAction()))
+            TodosRoutes.home: (context) => HomeScreen(onInit: () => StoreProvider.of<AppState>(context).dispatch(LoadTodosAction())),
+            TodosRoutes.addTodo: (context) => const AddTodo()
           },
         ));
   }

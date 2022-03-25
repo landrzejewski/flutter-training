@@ -32,7 +32,7 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   // final repository = InMemoryTodosRepository();
   final repository = SharedPreferencesTodosRepository();
-  await repository.save([Todo("Learn dart")]);
+  // await repository.save([Todo("Learn dart")]);
   runApp(TodoApp(store: Store<AppState>(appReducer, initialState: AppState(), middleware: createTodosStoreMiddleware(repository))));
 }
 
