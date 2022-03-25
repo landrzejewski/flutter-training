@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:redux/redux.dart';
 import 'package:training/todo/adapters/shared_preferences_todos_repository.dart';
+import 'package:training/ui/battery.dart';
 import 'todo/adapters/in_memory_todos_repository.dart';
 import 'todo/app.dart';
 import 'todo/middlewares/todos_store_middleware.dart';
@@ -31,9 +32,10 @@ import 'ui/material_hello_world.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   // final repository = InMemoryTodosRepository();
-  final repository = SharedPreferencesTodosRepository();
+  // final repository = SharedPreferencesTodosRepository();
   // await repository.save([Todo("Learn dart")]);
-  runApp(TodoApp(store: Store<AppState>(appReducer, initialState: AppState(), middleware: createTodosStoreMiddleware(repository))));
+  // runApp(TodoApp(store: Store<AppState>(appReducer, initialState: AppState(), middleware: createTodosStoreMiddleware(repository))));
+  runApp(const Battery());
 }
 
 // class HelloWorld extends StatelessWidget {
