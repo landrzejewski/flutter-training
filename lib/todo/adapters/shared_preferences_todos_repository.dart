@@ -23,11 +23,9 @@ class SharedPreferencesTodosRepository implements TodosRepository {
     return preferences.setString(todosKey, _toJson(todos));
   }
 
-  String _toJson(List<Todo> todos) => jsonEncode(todos.map(_toMap));
+  String _toJson(List<Todo> todos) => jsonEncode(todos.map(_toMap).toList());
 
-  List<Todo> _fromJson(String json) {
-    return List<Todo>.from(jsonDecode(json).map(_toTodo));
-  }
+  List<Todo> _fromJson(String json) => List<Todo>.from(jsonDecode(json).map(_toTodo));
 
   Map<String, dynamic> _toMap(Todo todo) => {
     'id': todo.id,
@@ -36,7 +34,7 @@ class SharedPreferencesTodosRepository implements TodosRepository {
     'complete': todo.complete
   };
 
-  Todo _toTodo(Map<String, dynamic> todoMap) {
+  Todo _toTodo(dynamic todoMap) {
     return Todo(
         todoMap['task'] ?? "",
         complete: todoMap["complete"],

@@ -5,6 +5,7 @@ import 'todo/adapters/in_memory_todos_repository.dart';
 import 'todo/app.dart';
 import 'todo/middlewares/todos_store_middleware.dart';
 import 'todo/models/app_state.dart';
+import 'todo/models/todo.dart';
 import 'todo/reducers/app_state_reducer.dart';
 import 'movies/fake_movies_provider.dart';
 import 'movies/http_movies_provider.dart';
@@ -31,6 +32,7 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   // final repository = InMemoryTodosRepository();
   final repository = SharedPreferencesTodosRepository();
+  await repository.save([Todo("Learn dart")]);
   runApp(TodoApp(store: Store<AppState>(appReducer, initialState: AppState(), middleware: createTodosStoreMiddleware(repository))));
 }
 
