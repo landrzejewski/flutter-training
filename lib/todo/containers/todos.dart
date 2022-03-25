@@ -23,4 +23,5 @@ class _ViewModel {
   static _ViewModel fromStore(Store<AppState> store) {
     return _ViewModel(store.state.todos, store.state.isLoading);
   }
+
 }

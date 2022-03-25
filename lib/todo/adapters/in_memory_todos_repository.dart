@@ -8,7 +8,7 @@ class InMemoryTodosRepository implements TodosRepository {
 
   @override
   Future<List<Todo>> load() {
-    return Future.delayed(const Duration(seconds: 5), () => _todos);
+    return Future.delayed(const Duration(seconds: 2), () => _todos);
   }
 
   @override

@@ -11,6 +11,7 @@ List<Middleware<AppState>> createTodosStoreMiddleware(TodosRepository repository
 }
 
 Middleware<AppState> _createLoadTodos(TodosRepository repository) {
+
   return (Store<AppState> store, dynamic action, NextDispatcher next) {
     repository.load().then((todos) => store.dispatch(TodosLoadedAction(todos)));
     next(action);
